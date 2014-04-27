@@ -18,6 +18,9 @@ gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'slim-rails'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 group :development do
   gem 'forgery'

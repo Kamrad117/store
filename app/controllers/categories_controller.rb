@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @brands = @category.brands.uniq
-    @products = @category.products
+    @products = @category.products.page(params[:page]).per(18)
   end
 
   # GET /categories/new

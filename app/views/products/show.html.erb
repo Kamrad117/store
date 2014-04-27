@@ -1,7 +1,115 @@
 <p id="notice"> <%=notice%> </p>
 
-  <%= @product.name%>
-  <%= @product.description%>
-  <%= @product.price%>
-  <%= @product.category_id%>
-  <%= @product.brand_id%>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+          <div id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+              <% @product.assets.count.times do |i|%>
+                <li data-target="#myCarousel" data-slide-to="<%= i %>" class=""></li>
+              <%end%>
+            </ol>
+            <div class="carousel-inner">
+              <% @product.assets.each_with_index do |asset, index| %>
+                <% if index == 0 %>
+                  <div class="item active">
+                <% else %>
+                  <div class="item">
+                <% end %>
+
+                <img class="img-responsive" src="<%= asset.image.url%>" alt="post image">
+                </div>
+              <%end%>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev"></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="icon-next"></span></a>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading"> All Images </div>
+            <div class="panel-body">
+              <div>
+                <% @product.assets.each_with_index do |asset, index| %>
+                  <%= link_to asset.image.url, class: 'col-sm-3', data: { toggle: 'lightbox', gallery: 'some' } do %>
+                    <%= image_tag asset.image.url(:thumb), class: 'img-responsive' %>
+                  <%end%>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+
+
+
+
+          <ul id="myTab" class="nav nav-tabs">
+            <li class=""><a href="#home" data-toggle="tab">Описание</a></li>
+            <li class="active"><a href="#profile" data-toggle="tab">Доставка</a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content" style="margin-bottom:20px;">
+            <div class="tab-pane fade" id="home">
+              <p><%= @product.description%></p>
+            </div>
+            <div class="tab-pane fade active in" id="profile">
+              <p><%= @product.description%></p>
+            </div>
+
+            </div>
+
+
+      </div><!-- /.col-xs-12 col-sm-12 col-md-6 .carousel -->
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+            <h2><%= @product.name%></h2>
+            <p class="lead text-success pull-right"><strong><%= @product.price%></strong></p>
+            <p><%= @product.brand.name%></p>
+            <ul class="hidden-xs">
+              <li>Product feature title</li>
+              <li>Product feature title</li>
+              <li>Product feature title</li>
+              <li>Product feature title</li>
+              <li>Product feature title</li>
+            </ul>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <select class="form-control" style="margin-bottom:10px;">
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                  <option>Option 4</option>
+                  <option>Option  5</option>
+                </select>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-bottom:10px;">
+                <select class="form-control">
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                  <option>Option 4</option>
+                  <option>Option  5</option>
+                </select>
+              </div>
+              <hr>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <a class="btn btn-block btn-warning" href="#" title="" style="margin-bottom:10px;">ADD TO BAG</a>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <a class="btn btn-block btn-default" href="#" title="" style="margin-bottom:10px;">SAVE FOR LATER</a>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+<script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>

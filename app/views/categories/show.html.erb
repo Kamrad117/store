@@ -1,8 +1,8 @@
 <p id="notice"> <%=notice%> </p>
 
 <h2><%= @category.name %></h2>
-<hr>
-
+  <%= paginate @products, theme: 'twitter-bootstrap-3',
+                   pagination_class: "pagination-sm"%>
 <div class="row">
     <% @products.each do |product| %>
         <div class="col-sm-4 col-lg-4 col-md-4">
@@ -17,3 +17,5 @@
         </div>
     <%end%>
 </div>
+  <%= paginate @products, theme: 'twitter-bootstrap-3',
+                   pagination_class: "pagination-sm"%>
