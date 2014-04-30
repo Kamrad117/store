@@ -1,0 +1,21 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Ваша корзина
+  </div>
+
+  <div class="panel-body">
+    <% if current_cart.line_items.any? %>
+      <% current_cart.line_items.each do |item| %>
+        <%= item.name %> <%= item.price %>
+      <%end%>
+    <%else%>
+      Ваша корзина пуста
+    <%end%>
+  </div>
+
+  <div class="panel-footer">
+    <%= current_cart.total_price %>
+    <%= link_to t(:checkout), new_order_path, class: 'pull-right' %>
+  </div>
+
+</div>

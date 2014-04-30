@@ -3,6 +3,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
+
           <div id="myCarousel" class="carousel slide">
             <ol class="carousel-indicators">
               <% @product.assets.count.times do |i|%>
@@ -92,14 +93,14 @@
                   <option>Option 2</option>
                   <option>Option 3</option>
                   <option>Option 4</option>
-                  <option>Option  5</option>
+                  <option>Option 5</option>
                 </select>
               </div>
               <hr>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <a class="btn btn-block btn-warning" href="#" title="" style="margin-bottom:10px;">ADD TO BAG</a>
+                <%= button_to t(:add_to_cart), line_items_path(product_id: @product ),params: {quantity: 1},remote: true, class:"btn btn-block btn-warning" %>
               </div>
 
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
