@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many :assets, dependent: :destroy, autosave: true
   accepts_nested_attributes_for :assets, allow_destroy: true,
                                 :reject_if => lambda { |attributes| attributes[:image].blank? }
+  has_many :line_items
 
   validate :name, presence: true
   validate :description, presence: true

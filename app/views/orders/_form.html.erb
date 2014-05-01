@@ -1,0 +1,20 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <div  class="form-inputs">
+    <%= f.input :notes %>
+    <%= f.input :cell_phone %>
+    <%= f.association :delivery, required: true, include_blank: false  %>
+  <div  class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<%end%>
+  </div>
+    <div class="bs-callout bs-callout-info">
+      <% Delivery.all.each do |delivery| %>
+        <div class="well well-sm">
+          <h4><%= delivery.name %></h4>
+          <p><%= delivery.description %></p>
+        </div>
+      <% end %>
+  </div>

@@ -34,3 +34,8 @@ brands = brand_names.each do |name|
   end
 end
 
+
+Delivery.new(name: "Курьером", description: "Э фасся джигит сгорных гор падгонит пабрацки чиста э нахуй").save!
+Delivery.new(name: "Почтой" , description: " ЧёКаво туда сюда привезут увезут").save!
+Delivery.new(name: "Крысами", description: "По минску толькаэ").save!
+

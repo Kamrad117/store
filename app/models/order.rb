@@ -6,9 +6,10 @@ class Order < ActiveRecord::Base
 
   validate :price, presence: true
   validate :user_id, presence: true
+  validate :cell_phone, presence: true
 
-  def add_line_items_from_the_cart(cart)
-    price = cart.total_price
+  def get_items(cart)
+    self.price = cart.total_price
     cart.line_items.each do |item|
       item.cart_id = nil
       line_items << item

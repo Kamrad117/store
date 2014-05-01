@@ -1,0 +1,23 @@
+<div class="panel panel-success">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= t(:order) %></div>
+  <div class="panel-body">
+
+  </div>
+
+  <!-- Table -->
+  <table class="table table-stripped">
+    <% order.line_items.each do |item| %>
+      <tr>
+        <td>
+          <%= image_tag(item.assets.first.image.url(:tiny)) if item.assets.any? %>
+        </td>
+        <td><%= link_to item.name, item.product %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.price %></td>
+        <td><%= item.price %></td>
+
+      </tr>
+    <% end %>
+  </table>
+</div>
