@@ -9,7 +9,7 @@ ActiveAdmin.register Product do
         f.input :brand_id, as: :select, collection: Brand.all, include_blank: false
 
         f.input :name
-        f.input :description
+        f.input :description, as: :ckeditor, label: false
         f.input :price
       end
 

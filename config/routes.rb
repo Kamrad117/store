@@ -1,5 +1,9 @@
 Store::Application.routes.draw do
 
+  get 'pages/show'
+
+  root :to => "home#index"
+
   resources :orders
 
   devise_for :users, :controllers => {:registrations => "registrations"}
@@ -16,5 +20,6 @@ Store::Application.routes.draw do
 
   resources :line_items
 
-  root :to => "home#index"
+  mount Ckeditor::Engine => '/ckeditor'
+
 end

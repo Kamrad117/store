@@ -13,6 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor/override
+//= require ckeditor/init
 //= require bootstrap
 //= require ekko-lightbox.min
 //= require_tree .
+
+$(document).ready(function() {
+    if ($('textarea').length > 0) {
+        var data = $('textarea');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+    }
+});

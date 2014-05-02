@@ -21,6 +21,9 @@ gem 'slim-rails'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'cancancan', '~> 1.7'
+gem 'ckeditor'
+
 
 group :development do
   gem 'forgery'
