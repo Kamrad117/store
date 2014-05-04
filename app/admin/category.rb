@@ -9,9 +9,9 @@ ActiveAdmin.register Category do
   config.filters = false
   config.sort_order = "name_asc"
 
-  sidebar "Sidebar", only: [:show, :edit] do |cat|
+  sidebar "Sidebar", only: [:show, :edit] do
     div do
-      link_to I18n.t(:name), category_path(cat.id)
+      link_to "I18n.t(:view_on_website)", category_path(params[:id])
     end
   end
 
@@ -27,4 +27,15 @@ ActiveAdmin.register Category do
   end
 
 
+  show title: :name do |category|
+    attributes_table do
+      row t(:description) do
+        simple_format category.description
+      end
+      row t(:products_count) do
+        category.products.count
+      end
+    end
+    active_admin_comments
+  end
 end

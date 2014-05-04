@@ -27,7 +27,6 @@ GIT
       mime-types
 
 GEM
-  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.0)
       actionpack (= 4.1.0)

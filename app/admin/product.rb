@@ -4,8 +4,25 @@ ActiveAdmin.register Product do
   menu label: proc{ I18n.t(:products)}, priority: 3, parent: "Content"
 
 
-  form multipart: true do |f|
+  sidebar "Sidebar", only: [:show, :edit] do
+    div do
+      link_to "I18n.t(:view_on_website)", product_path(params[:id])
+    end
+  end
 
+  index do |product|
+    selectable_column
+    column :id
+    column :name do
+      link_to product.name, admin_product_path(product)
+    end
+    column :description
+  end
+
+
+
+
+  form multipart: true do |f|
       f.inputs "Детали" do
         f.input :category_id, as: :select, collection: Category.all, include_blank: false
         f.input :brand_id, as: :select, collection: Brand.all, include_blank: false
@@ -39,10 +56,6 @@ ActiveAdmin.register Product do
          end
         end
         row :created_at
-        row :updated_at
-        row 'Show on website' do
-          link_to product.name, product
-        end
       end
       active_admin_comments
     end
