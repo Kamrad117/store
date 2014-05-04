@@ -1,6 +1,8 @@
 ActiveAdmin.register Product do
 
   permit_params :name, :description, :price, :brand_id, :category_id, assets_attributes: [:image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id]
+  menu label: proc{ I18n.t(:products)}, priority: 3, parent: "Content"
+
 
   form multipart: true do |f|
 
