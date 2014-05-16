@@ -1,4 +1,5 @@
-ruby '2.0.0'
+source 'https://rubygems.org'
+ruby '2.1.1'
 
 gem 'rails', '4.1.0'
 gem 'sass-rails', '~> 4.0.3'
@@ -22,11 +23,11 @@ gem 'bootstrap-kaminari-views'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'cancancan', '~> 1.7'
 gem 'ckeditor'
+gem 'rails-i18n', '~> 4.0.0'
 
 
 group :development do
   gem 'forgery'
-  gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]
   gem 'guard-bundler'
   gem 'guard-rails'

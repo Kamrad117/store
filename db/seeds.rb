@@ -23,14 +23,12 @@ end
 brands = brand_names.each do |name|
   brand = Brand.create!(name: name)
   Category.all.each do |category|
-    15.times do
-    	product_params = {
-        name: Forgery(:lorem_ipsum).words(rand(1..3)),
-        description: Forgery(:lorem_ipsum).words(rand(50..140)),
-        price: rand(10000000), category_id: category.id, brand_id: brand.id
-      }
-      Product.create!(product_params)
-    end
+  	product_params = {
+      name: Forgery(:lorem_ipsum).words(rand(1..3)),
+      description: Forgery(:lorem_ipsum).words(rand(50..140)),
+      price: rand(10000000), category_id: category.id, brand_id: brand.id
+    }
+    Product.create!(product_params)
   end
 end
 
