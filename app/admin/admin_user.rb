@@ -18,9 +18,9 @@ ActiveAdmin.register AdminUser do
 
   form do |f|
     f.inputs "Admin Details" do
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
+      f.input :email, label: t(:email)
+      f.input :password, label: t(:password)
+      f.input :password_confirmation, label: t(:password_confirmation)
     end
     f.actions
   end

@@ -4,3 +4,30 @@ ru:
        default: "%Y/%m/%d"
        short: "%b %d"
        long: "%B %d, %Y"
+
+
+  name: название
+  description: описание
+  count: количество
+  product_count: "количество продуктов"
+  image: изображение
+  images: изображения
+  photo: фото
+  photos: фотографии
+  price: цена
+  quantiy: количество
+  brand: бренд
+  category: категория
+  product: продукт
+  order: заказ
+  orders: заказы
+  products_count: 'количество продуктов'
+  view_on_website: "показать на сайте"
+  categories: Категории
+  products: Товары
+  brands: Брэнды
+  password: пароль
+  password_confirmation: 'подтверждение пароля'
+  exist: "есть в наличии"
+  assets: изображения
+

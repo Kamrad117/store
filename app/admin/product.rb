@@ -4,15 +4,14 @@ ActiveAdmin.register Product do
   menu label: proc{ I18n.t(:products)}, priority: 3, parent: "Content"
 
 
-  sidebar "Sidebar", only: [:show, :edit] do
+  sidebar proc{ t(:sidebar) }, only: [:show, :edit] do
     div do
-      link_to "I18n.t(:view_on_website)", product_path(params[:id])
+      link_to t(:view_on_website), product_path(params[:id])
     end
   end
 
   index do
     selectable_column
-    column :id
     column t(:images) do |product|
       ul class: 'inline' do
         product.assets.each do |asset|
@@ -22,14 +21,16 @@ ActiveAdmin.register Product do
         end
       end
     end
-    column :exist
-    column :name do |product|
+    column t(:exist)
+    column t(:name) do |product|
       link_to product.name, admin_product_path(product)
     end
-    column :description do |product|
+    column t(:description) do |product|
       product.description.truncate(200)
     end
-    column :price
+    column t(:price) do |product|
+      product.price
+    end
     default_actions
   end
 
@@ -53,11 +54,19 @@ ActiveAdmin.register Product do
 
     show title: :name do |product|
       attributes_table do
-        row :category
-        row :brand
-        row :price
-        row :description
-        row :assets do
+        row t(:category) do
+          product.category
+        end
+        row t(:brand) do
+          product.brand
+        end
+        row t(:price) do
+          product.price
+        end
+        row t(:description) do
+          product.description
+        end
+        row t(:assets) do
           ul do
           product.assets.each do |asset|
             li do
